@@ -9,10 +9,13 @@
 :root{--paper:#fff8ec; --ink:#3a2a1f; --muted:#7a6a5c; --line:#f0e2cc;
   --sat:#e2622b; --sun:#2f78b7; --hol:#3c8d5a; --long:#8a6d4b; --title:#5a3a22}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--paper);color:var(--ink)}
+html,body{margin:0;height:100%;background:var(--paper);color:var(--ink)}
 body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
   font-size:14px;line-height:1.4;-webkit-text-size-adjust:100%;overflow:hidden}
-.w{padding:8px 10px 6px}
+/* 枠の高さいっぱいに広げる。余った高さは行どうしの間隔に分け、「すべて見る」と時点は一番下に寄せる。
+   中身が枠より高いときは、間隔は0のまま（詰めた形）になる。 */
+.w{padding:8px 10px 6px;min-height:100%;display:flex;flex-direction:column}
+.w>ol{flex:1 0 auto;display:flex;flex-direction:column;justify-content:space-between}
 .head{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;border-bottom:2px solid var(--title);padding-bottom:4px;margin:0 0 2px}
 .head b{font-size:15px;color:var(--title);font-weight:800}
 .head span{font-size:12.5px;color:var(--muted);font-weight:700}
